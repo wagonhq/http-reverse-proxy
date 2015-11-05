@@ -355,6 +355,7 @@ waiProxyToSettings getDest wps' manager req0 sendResponse = do
                     , HC.requestHeaders = fixReqHeaders wps req
                     , HC.requestBody = body
                     , HC.redirectCount = 0
+                    , HC.secure = WAI.isSecure req
                     , HC.checkStatus = \_ _ _ -> Nothing
                     , HC.responseTimeout = lpsTimeBound lps
                     }
